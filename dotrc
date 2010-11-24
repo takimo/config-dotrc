@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# example
+# ./dotrc c/config/dotrc/*
+for src in $@; do
+    dest=.$(basename $src)
+    ln -svf $src $dest
+done
