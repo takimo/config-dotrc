@@ -1,0 +1,40 @@
+defencoding utf8
+#defencoding eucJP
+escape ^t^t
+shell /bin/zsh
+startup_message off
+vbell off
+autodetach on
+defscrollback 1000
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+bind l windowlist -b
+
+#split window
+bind s eval split focus "select 0"
+bind ^s eval split focus "select 0"
+
+#resize
+bind r eval 'command -c resize'
+bind ^r eval 'command -c resize'
+bind + eval 'command -c resize'
+bind - eval 'command -c resize'
+bind -c resize + eval 'resize +1' 'command -c resize'
+bind -c resize - eval 'resize -1' 'command -c resize'
+
+#move current window
+bind j focus down
+bind ^j focus down
+bind k focus up
+bind ^k focus up
+
+#close current window
+bind c remove
+bind ^c remove
+
+#close all other windows
+bind o only
+bind ^o only
+
+bind 'U' eval "encoding utf8" "stuff 'export LANG=ja_JP.UTF-8\012'"
+bind 'E' eval "encoding euc"  "stuff 'export LANG=ja_JP.EUC-JP\012'"
